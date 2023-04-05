@@ -1,0 +1,40 @@
+<jqassistant-rules xmlns="http://schema.jqassistant.org/rule/v2.0"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://schema.jqassistant.org/rule/v2.0 http://schema.jqassistant.org/rule/jqassistant-rule-v2.0.xsd">
+
+    <concept id="mapstruct:Mapper">
+        <description>
+            Java types annotated by "org.mapstruct.@Mapper" are labeled with "MapStruct" and "Mapper".
+        </description>
+        <cypher><![CDATA[
+            MATCH
+              (mapper:Java:Type)-[:ANNOTATED_BY]->()-[:OF_TYPE]->(:Type{fqn:"org.mapstruct.Mapper"})
+            SET
+              mapper:MapStruct:Mapper
+            RETURN
+              mapper as Mapper
+            ORDER BY
+              mapper.fqn
+        ]]></cypher>
+    </concept>
+
+    <concept id="mapstruct:GeneratedType">
+        <providesConcept refId="java:GeneratedType"/>
+        <requiresConcept refId="mapstruct:Mapper"/>
+        <description>
+            Generated Java types which extend or implement MapStruct Mappers are labeled with "MapStruct" and "Generated".
+        </description>
+        <cypher><![CDATA[
+            MATCH
+              (generated:Java:Type)-[:EXTENDS|IMPLEMENTS]->(:MapStruct:Mapper)
+            SET
+              generated:MapStruct:Generated
+            RETURN
+              generated as GeneratedType
+            ORDER BY
+              generated.fqn
+        ]]></cypher>
+    </concept>
+
+</jqassistant-rules>
+
