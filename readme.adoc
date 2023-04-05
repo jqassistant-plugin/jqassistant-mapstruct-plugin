@@ -1,12 +1,13 @@
 = jQAssistant MapStruct Plugin
 
-This plugin provides https://mapstruct.org[MapStruct] related rules for [jQAssistant](https://jqassistant.org/).
+This plugin provides https://mapstruct.org[MapStruct] related rules for https://jqassistant.org/[jQAssistant].
 
 == Using the jQAssistant MapStruct Plugin
 
 To be able to use the plug-in, it must be specified as a plug-in to jQAssistant.
 
 [source, yaml]
+.jqassistant.yml
 ----
 jqassistant:
   plugins:
@@ -14,7 +15,7 @@ jqassistant:
       artifact-id: jqassistant-mapstruct-plugin
       version: ${jqassistant.mapstruct-plugin.version}
 ----
-<1> Dependency to the MapStruct plugin
+<1> Declaration of the MapStruct plugin
 
 
 == Rules
