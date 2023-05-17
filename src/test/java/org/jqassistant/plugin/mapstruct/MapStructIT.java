@@ -1,9 +1,9 @@
 package org.jqassistant.plugin.mapstruct;
 
 import java.util.List;
-import java.util.Map;
 
 import com.buschmais.jqassistant.core.report.api.model.Result;
+import com.buschmais.jqassistant.core.report.api.model.Row;
 import com.buschmais.jqassistant.core.rule.api.model.Concept;
 import com.buschmais.jqassistant.core.rule.api.model.RuleException;
 import com.buschmais.jqassistant.plugin.java.api.model.TypeDescriptor;
@@ -31,7 +31,7 @@ public class MapStructIT extends AbstractJavaPluginIT {
 
         assertThat(result.getStatus()).isEqualTo(SUCCESS);
         store.beginTransaction();
-        List<Map<String, Object>> rows = result.getRows();
+        List<Row> rows = result.getRows();
         assertThat(rows).hasSize(2);
         List<TypeDescriptor> mappers = query("MATCH (mapper:MapStruct:Mapper) RETURN mapper").getColumn("mapper");
         assertThat(mappers).has(matching(hasItems(typeDescriptor(MapperInterface.class), typeDescriptor(MapperClass.class))));
