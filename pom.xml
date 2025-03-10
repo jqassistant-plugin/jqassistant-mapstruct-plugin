@@ -13,7 +13,7 @@
 
     <name>jQAssistant MapStruct Plugin</name>
     <description>The jQAssistant plugin providing rules for MapStruct.</description>
-    <url>https://jqassistant.org/</url>
+    <url>https://github.com/jqassistant-plugin/jqassistant-mapstruct-plugin</url>
 
     <organization>
         <name>jQAssistant Development Team</name>
