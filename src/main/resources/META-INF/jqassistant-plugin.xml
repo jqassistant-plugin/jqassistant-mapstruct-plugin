@@ -3,9 +3,7 @@
                     xsi:schemaLocation="http://schema.jqassistant.org/plugin/v1.11 https://schema.jqassistant.org/plugin/jqassistant-plugin-v1.11.xsd"
                     name="jQAssistant MapStruct Plugin" id="jqa.plugin.mapstruct"
                     version="${project.version}">
-    <description>
-        Provides rules for MapStruct.
-    </description>
+    <description>${project.description}</description>
     <rules>
         <resource>mapstruct.xml</resource>
     </rules>
